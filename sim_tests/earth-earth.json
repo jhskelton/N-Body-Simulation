@@ -1,0 +1,31 @@
+{
+	"bodies": [
+		{
+			"name": "earth",
+			"x0": [10,0],
+			"v0": [0,0.1],
+			"mass": 1,
+			"colour": "green"
+		},
+
+		{
+			"name": "earth2",
+			"x0": [0,10],
+			"v0": [0,-0.1],
+			"mass": 1,
+			"colour": "yellow"
+		}
+	],
+	"dim": 2,
+	"tfin": 1000,
+	"dt": 0.5,
+	"frame": "COM",
+
+	"max dt": 0.1,
+	"power law": 2,
+
+	"physics": "gravity",
+	"trail length": -1,
+
+	"equal ratio": false
+}

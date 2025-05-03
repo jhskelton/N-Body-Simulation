@@ -1,0 +1,78 @@
+{
+	"bodies": [
+		{
+			"name": "earth",
+			"x0": [10,0],
+			"v0": [0,0.55],
+			"mass": 1,
+			"colour": "blue"
+		},
+
+		{
+			"name": "earth2",
+			"x0": [-10,0],
+			"v0": [0,-0.55],
+			"mass": 1,
+			"colour": "green"
+		},
+
+		{
+			"name": "mercuty",
+			"x0": [0,-20],
+			"v0": [0.8,0],
+			"mass": 0.1,
+			"colour": "red",
+			"charge": 1
+		},
+
+		{
+			"name": "sun",
+			"x0": [0,0],
+			"v0": [0,0.2],
+			"mass": 10,
+			"colour": "yellow"
+		}
+,
+
+		{
+			"name": "sun2",
+			"x0": [60,0],
+			"v0": [0,-0.2],
+			"mass": 10,
+			"colour": "yellow"
+		}
+,
+
+		{
+			"name": "sun1",
+			"x0": [150,0],
+			"v0": [0,0.4],
+			"mass": 10,
+			"colour": "yellow"
+		}
+,
+
+		{
+			"name": "sun4",
+			"x0": [50,0],
+			"v0": [0,0.6],
+			"mass": 10,
+			"colour": "yellow"
+		}
+,
+
+		{
+			"name": "sun5",
+			"x0": [100,0],
+			"v0": [0,0.2],
+			"mass": 10,
+			"colour": "yellow"
+		}
+	],
+	"tfin": 400,
+	"dt": 0.5,
+	"frame": "COM",
+
+	"max dt": 0.1,
+	"power law": 2
+}

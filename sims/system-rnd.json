@@ -1,0 +1,19 @@
+{
+	"bodies": [
+		{
+			"type": "random",
+			"num": 20,
+			"r max": 300,
+			"v max": 0.0,
+			"mass": 10,
+			"colour": "limegreen"
+		}
+	],
+	"dim": 2,
+	"tfin": 1000,
+	"dt": 0.5,
+	"frame": "COM",
+	"trail length": 100,
+	"max dt": 0.1,
+	"physics": "gravity"
+}

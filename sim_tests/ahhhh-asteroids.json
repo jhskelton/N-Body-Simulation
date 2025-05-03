@@ -1,0 +1,31 @@
+{
+	"bodies": [
+		{
+			"type": "random",
+			"num": 15,
+			"r max": 120,
+			"v max": 0.0,
+			"mass": 100,
+			"colour": "limegreen",
+			"static": true
+		},
+		{
+			"type": "random",
+			"num": 5,
+			"r max": 70,
+			"v max": 4,
+			"mass": 1,
+			"ghost": true,
+			"colour": "yellow"
+		}
+	],
+	"dim": 2,
+	"tfin": 1000,
+	"dt": 0.5,
+	"frame": "zero",
+	"trail length": 100,
+	"max dt": 0.1,
+	"max plot radius": 300,
+
+	"physics": "gravity"
+}

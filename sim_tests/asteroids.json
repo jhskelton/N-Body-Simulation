@@ -1,0 +1,27 @@
+{
+	"bodies": [
+		{
+			"type": "random",
+			"num": 15,
+			"r_max": 150,
+			"v_max": 0.0,
+			"mass": 100,
+			"colour": "limegreen",
+			"static": true
+		},
+		{
+			"x0": [0,0],
+			"v0": [0,4],
+			"mass": 1,
+			"colour": "yellow"
+		}
+	],
+	"dim": 2,
+	"tfin": 1000,
+	"dt": 0.5,
+	"frame": "zero",
+	"trail length": 100,
+	"max dt": 0.1,
+
+	"physics": "gravity"
+}
