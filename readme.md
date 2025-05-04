@@ -17,20 +17,20 @@ How to use command line input
 
 #### Bodies
 
-- "name": the name of the body
-- "mass"
-- "colour": the colour used to plot / label the dynamical trajectory - uses matplotlib colours. See: [matplotlib colours](https://matplotlib.org/stable/gallery/color/named_colors.html)
-- "x0": the initial position, as a d-dim vector. Eg [0,1,2]
-- "v0": initial velocity, d-dim vector.
-- "type": used to construct the body. See: "random" (no others implemented)
-- "charge": electrostatic charge.
+- `"name"`: the name of the body
+- `"mass"`
+- `"colour"`: the colour used to plot / label the dynamical trajectory - uses matplotlib colours. See: [matplotlib colours](https://matplotlib.org/stable/gallery/color/named_colors.html)
+- `"x0"`: the initial position, as a d-dim vector. Eg [0,1,2]
+- `"v0"`: initial velocity, d-dim vector.
+- `"type"`: used to construct the body. See: "random" (no others implemented)
+- `"charge"`: electrostatic charge.
 
 
 
 ##### Ghosts & Statics
 
-- "ghost": feels the 'force' from other particles, but does not exert any influence on others.  In newtonian gravity, this is the limiting behaviour of a 'massless' particle.
-- "static": does not feel the 'force' of other particles but does exert a foce.  Think of this as a 'source' tern.
+- `"ghost"`: feels the 'force' from other particles, but does not exert any influence on others.  In newtonian gravity, this is the limiting behaviour of a 'massless' particle.
+- `"static"`: does not feel the 'force' of other particles but does exert a foce.  Think of this as a 'source' tern.
 
 "static" & "ghost" terms are turned on by being `true`. They may be put into different classes & these are distinguished via string labels.
 "static" objects in the same class do not interact with one another, but do interact with static objects in another class
@@ -43,43 +43,43 @@ How to use command line input
 
 Samples bodies uniformly randomly.
 
-- "num": number of bodies to populate
-- "r max": maximum radius
-- "v max": maximum velocity
-- "mass var": variance of mass +- about 'mass' value
-- "charge var": variance of charge +- about 'charge' value
+- `"num"`: number of bodies to populate
+- `"r max"`: maximum radius
+- `"v max"`: maximum velocity
+- `"mass var"`: variance of mass +- about 'mass' value
+- `"charge var"`: variance of charge +- about 'charge' value
 
 
 #### General
 
-- "dim": number of dimensions of position/velocity/momentum vectors.
-- "tfin": Simulation time duration. ie the ending time of the simulation
+- `"dim"`: number of dimensions of position/velocity/momentum vectors.
+- `"tfin"`: Simulation time duration. ie the ending time of the simulation
 
 
 ##### Visuals
 
-- "frame": how to centre the plotting. Options: COM, zero, name of a body
-	- "COM": centre of mass frame
-- "trail len": length of trails behind the moving bodies.  If negative, then has infinite length.
-- "dt": time between frames (using simulation time, not real time). Motion of particles from simulation output (generically) does not have equal spacing in time. This results in unphysical slow-down and speed up if (x,y) is naively plotting.  "dt" is the time spacing used to interpolate the dynamical coordinates, so to make the plotting smooth.
-- "equal ratio": if true, make the coordinate ratio of xs & ys the same
-- "max radius": maximum distance from the (frame) origin to plot. ie if bodies leave the ball with this radius, do not plot them.
-- "plot Hamiltonian": if true, animate how the Hamiltonian changes over the duration of the simulation.
+- `"frame"`: how to centre the plotting. Options: COM, zero, name of a body
+	- `"COM"`: centre of mass frame
+- `"trail len"`: length of trails behind the moving bodies.  If negative, then has infinite length.
+- `"dt"`: time between frames (using simulation time, not real time). Motion of particles from simulation output (generically) does not have equal spacing in time. This results in unphysical slow-down and speed up if (x,y) is naively plotting.  "dt" is the time spacing used to interpolate the dynamical coordinates, so to make the plotting smooth.
+- `"equal ratio"`: if true, make the coordinate ratio of xs & ys the same
+- `"max radius"`: maximum distance from the (frame) origin to plot. ie if bodies leave the ball with this radius, do not plot them.
+- `"plot Hamiltonian"`: if true, animate how the Hamiltonian changes over the duration of the simulation.
 
 ##### Numerical Solver
 
-- "max dt": the maximum allowed time step to be used in the integrator
-- "method": which numerical solver to use to solve the ODEs
-- "atol": Default: 1e-6. See https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html for an explanation
-- "rtol": Default: 1e-3
+- `"max dt"`: the maximum allowed time step to be used in the integrator
+- `"method"`: which numerical solver to use to solve the ODEs
+- `"atol"`: Default: 1e-6. See https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html for an explanation
+- `"rtol": Default: 1e-3
 
 
 
 ##### Physics
 
-- "physics": says what hamiltonian to use. Implemented: Gravity, Electrostatics, & Gravity+Electrostatics
-- "grav power law": the powerlaw of the gravitational force
-- "electro power law": the powerlaw of the electrostatic force
+- `"physics"`: says what hamiltonian to use. Implemented: Gravity, Electrostatics, & Gravity+Electrostatics
+- `"grav power law"`: the powerlaw of the gravitational force
+- `"electro power law"`: the powerlaw of the electrostatic force
 
 
 
@@ -93,7 +93,7 @@ The dynamical system is modelled by a set of (differential) equations of motion 
 These EOM are generated from the Hamiltonian $`H`$ and are Hamilton's equations $`\frac{dx}{dt} = \frac{\partial H}{\partial p}`$ and $`\frac{dp}{dt} = -\frac{\partial H}{\partial x}`$.
 
 
-### Central Potential
+### N-Body Problem (central potential dynamics)
 
 The physics modelled is the Euclidean $`N`$-body central potential system.
 This has Hamiltonian $`H = T+V`$, where $`T = p^2/(2m)`$ is the standard 'Euclidean' kinetic energy and $`V`$ is the central potential.
@@ -102,16 +102,33 @@ $$V = \sum_{i=1}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}$$
 
 Where, $`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r_{ij} = \lVert x_{i}- x_j \rVert`$ is the distance.
 
+###### Examples
 - Newtonian gravity: $`g_{ij} = -Gm_im_j`$
 - Electrostatics / Coloumb: $`g_{ij} = k_0 q_iq_j`$
-- Hooke's Law / Spring: $`g_{ij} = \frac{1}{x}k_{ij}`$ (but power law $`r^{-2}`$).
+- Hooke's Law / Spring: $`g_{ij} = \frac{1}{2}k_{ij}`$ (but power law $`r^{-2}`$).
+
+
+##### 2-Body Dyanmics
+
+The 2-body problem is completely integrable and hence allows for the direct comparison between the analytical solutions and numerical solutions.
+The the system may be reduced to two independent 1-body problems, each orbitting about the centre of mass (COM) of the system (eg see [notes](https://www.physics.usu.edu/torre/6010_Fall_2016/Lectures/06.pdf)).
+The four integrals of motion are the Hamiltonian (energy), the angular momenta of the 2-bodies and total linear momentum.
+
+TODO: 
+- check (!) what are the four (or integrals?)
+- can any 2-body central potential system be redueced to two independent central potential systems about the COM.
+
+
+###### Gravity
+For gravity the 1-body problem (Kepler problem), the orbits form conic sections.
+In systems with low eneough energy, this manifests as elliptic orbits (as evident in the solar system).
+
 
 
 ## Simulation
 
 
-The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`. These are using standard 'euclidean' momentum ie .
-
+The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`.
 
 Class Heirarchy in the code:
 >- DynamicalSystem
@@ -124,15 +141,13 @@ Class Heirarchy in the code:
 In principle, the code may be extended to include non-hamiltonian systems.
 
 
-The dynamics of the system is simulated by numerically solving the (differential) equations of motion.  
-These equations are analytically generated from the Hamiltonian $`H`$ 
-
+The dynamics of the system is simulated by numerically solving the (differential) equations of motion (Hamilton's equations).
 
 ### Numerical Solvers
 
 
-Currently, the equations are being solved using a higher order Runge-kutta integrator.  
-Should change to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
+The equations are solved using a higher order Runge-kutta integrator.  
+Ideally, this should be changed to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
 
 ###### Runge Kutta
 
@@ -144,6 +159,8 @@ Should change to a sympletic integrator.  I believe scipy does not have one, so 
 
 
 #### Numerical Accuracy
+
+- The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to close back up). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
 
 
 
