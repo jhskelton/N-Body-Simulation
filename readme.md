@@ -20,6 +20,7 @@ Package dependencies
 - Compare the accuracy of different numerical integration schemes
 - Chaotic nature of the 3-body system
 - Visualisation of non-integrable orbits
+- Ray tracing the dynamical system using "ghost" (non-interacting) particles
 - Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
 
@@ -37,8 +38,35 @@ Package dependencies
 
 ## JSON File Input
 
-- [ ] give an example
+###### Example
+```json
+{
+	"bodies": [
+			{
+			"name": "earth",
+			"x0": [100,0],
+			"v0": [0,2],
+			"mass": 1,
+			"colour": "green"
+		},
+		{
+			"name": "sun",
+			"x0": [0,0],
+			"v0": [0,0],
+			"mass": 1000,
+			"colour": "yellow"
+		}
+	],
+	"dim": 2,
+	"physics": "gravity",
+	"tfin": 1000,
+	"max dt": 0.1,
+	"dt": 0.5,
+}
+```
+
 - [ ] which keywords are essential and which are optional?
+
 
 
 ### Key words
