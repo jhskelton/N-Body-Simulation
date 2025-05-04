@@ -51,7 +51,7 @@ Package dependencies
 - `"colour"`: the colour used to plot / label the dynamical trajectory - uses matplotlib colours. See: [matplotlib colours](https://matplotlib.org/stable/gallery/color/named_colors.html)
 - `"x0"`: the initial position, as a d-dim vector. Eg [0,1,2]
 - `"v0"`: initial velocity, d-dim vector.
-- `"type"`: used to construct the body. See: "random" (no others implemented)
+- `"type"`: used to construct the body. Options: `"random"`
 - `"charge"`: electrostatic charge.
 
 
@@ -176,9 +176,7 @@ Ideally, this should be changed to a sympletic integrator.  I believe scipy does
 ###### Runge Kutta
 
 Solves the 1st order ODE
-
-$$ \frac{dy}{dt} = f(t,y) $$
-
+$` \frac{dy}{dt} = f(t,y) `$.
 See [scipy implementations](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
 
 
@@ -202,7 +200,7 @@ External Packages:
 #### Notes
 
 Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
-Though, in the infinitessimal limit max_dt -> 0, the two bodies will collide.  Unclear how to make sense of this.
+Though, in the infinitessimal limit `max_dt` $`\to 0`$, the two bodies will collide.  Unclear how to make sense of this.
 Scattering is thus a natural phenomenom and is not hard coded.
 
 
@@ -279,12 +277,6 @@ In principle, the code may be extended to include non-hamiltonian systems.
 > - `Graphics` - collection of parameters describing how to process & plot the data post simulation.
 
 
-###### TODO:
-`Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System.
-[feels as if System and DynamicalSystem should be the same object].
-Simulation should hold the dynamical time evolution of $`(x,p)`$.
-
-
 ###### Misc helper functions
 > - `arrays` - flattening and bundling lists (eg into vectors)
 > - `vector` - computations such as inner-product and norm.  A 'vector' is just a numpy 1d array.
@@ -303,6 +295,9 @@ Simulation should hold the dynamical time evolution of $`(x,p)`$.
 - [ ] Write the code to work with 1-dimensional bodies, and 1 body.
 - [ ] Symplectic Integrator option
 - [ ] Option to directly export the orbit animation to .mp4
+- [ ] `Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System.
+[feels as if System and DynamicalSystem should be the same object].
+Simulation should hold the dynamical time evolution of $`(x,p)`$.
 
 
 #### Mid priority
