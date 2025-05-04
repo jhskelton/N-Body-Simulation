@@ -91,8 +91,8 @@ Samples bodies uniformly randomly.
 
 - `"max dt"`: the maximum allowed time step to be used in the integrator
 - `"method"`: which numerical solver to use to solve the ODEs
-- `"atol"`: Default: 1e-6. See https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html for an explanation
-- `"rtol": Default: 1e-3
+- `"atol"`: Default: `1e-6`. See https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html for an explanation
+- `"rtol"`: Default: `1e-3`
 
 
 
@@ -102,6 +102,12 @@ Samples bodies uniformly randomly.
 - `"grav power law"`: the powerlaw of the gravitational force
 - `"electro power law"`: the powerlaw of the electrostatic force
 
+
+###### Types of Physics
+
+- `"gravity"`
+- `"electrostatics"`
+- `"gravo-electro"`
 
 
 ## Physics / Hamiltonian
@@ -176,7 +182,7 @@ See [scipy implementations](https://docs.scipy.org/doc/scipy/reference/generated
 #### Numerical Accuracy
 
 - The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. 
-- However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to close back up). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
+- However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to return to their initial positions). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
 
 
 
@@ -231,12 +237,12 @@ Parameters are uniformly sampled between min & max values.
 
 
 ###### Class Heirarchy of the dynamical systems:
->- DynamicalSystem
->     - Hamiltonian
->		   - CentralPotential
->			   - Gravity
->			   - ElectroStatics
->			   - GravoElectro
+>- `DynamicalSystem`
+>     - `Hamiltonian`
+>		   - `CentralPotential`
+>			   - `Gravity`
+>			   - `ElectroStatics`
+>			   - `GravoElectro`
 
 In principle, the code may be extended to include non-hamiltonian systems.
 
