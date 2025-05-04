@@ -87,9 +87,21 @@ Samples bodies uniformly randomly.
 
 
 
-## Hamiltonians
+## Physics / Hamiltonian
 
-The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`. These are using standard 'euclidean' momentum ie $`T = p^2/(2m)`$ d d.
+The dynamical system is modelled by a set of (differential) equations of motion (EOM).
+These EOM are generated from the Hamiltonian $`H`$ and are Hamilton's equations $`\frac{dx}{dt} = \frac{\partial H}{\partial p}`$ and $`\frac{dp}{dt} = -\frac{\partial H}{\partial x}`$.
+
+
+The physics modelled is the Euclidean $`N`$-body central potential system.
+This has Hamiltonian $`H = T+V`$, where $`T = p^2/(2m)`$ is the standard 'Euclidean' kinetic energy and $`V`$ is the central potential.
+$$`V = \sum_{i}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}`$$
+
+
+## Simulation
+
+
+The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`. These are using standard 'euclidean' momentum ie .
 
 
 Class Heirarchy in the code:
@@ -103,11 +115,8 @@ Class Heirarchy in the code:
 In principle, the code may be extended to include non-hamiltonian systems.
 
 
-
-## Simulation
-
 The dynamics of the system is simulated by numerically solving the (differential) equations of motion.  
-These equations are analytically generated from the Hamiltonian $`H`$ and Hamilton's equations $`\frac{dx}{dt} = \frac{\partial H}{\partial p}`$ and $`\frac{dp}{dt} = -\frac{\partial H}{\partial x}`$.
+These equations are analytically generated from the Hamiltonian $`H`$ 
 
 
 ### Numerical Solvers
