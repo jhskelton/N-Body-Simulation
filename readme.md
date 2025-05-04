@@ -1,6 +1,8 @@
 # N-body Simulation
 
+How to use command line input
 
+`python3 main.py PATH/SYSTEM.json`
 
 
 
@@ -87,7 +89,7 @@ Samples bodies uniformly randomly.
 
 ## Hamiltonians
 
-The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`. These are using standard 'euclidean' momentum ie $T = p^2/(2m)$.
+The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`. These are using standard 'euclidean' momentum ie $`T = p^2/(2m)`$ d d.
 
 
 Class Heirarchy in the code:
@@ -100,17 +102,19 @@ Class Heirarchy in the code:
 
 In principle, the code may be extended to include non-hamiltonian systems.
 
+
+
 ## Simulation
 
-Currently, the equations are being solved using a higher order Runge-kutta integrator.  
-Should change to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
-
-Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
-Though, in the infinitessimal limit max_dt -> 0, the two bodies will collide.  Unclear how to make sense of this.
-Scattering is thus a natural phenomenom and is not hard coded.
+The dynamics of the system is simulated by numerically solving the (differential) equations of motion.  
+These equations are analytically generated from the Hamiltonian $`H`$ and Hamilton's equations $`\frac{dx}{dt} = \frac{\partial H}{\partial p}`$ and $`\frac{dp}{dt} = -\frac{\partial H}{\partial x}`$.
 
 
 ### Numerical Solvers
+
+
+Currently, the equations are being solved using a higher order Runge-kutta integrator.  
+Should change to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
 
 ###### Runge Kutta
 
@@ -118,6 +122,22 @@ Scattering is thus a natural phenomenom and is not hard coded.
 ###### Symplectic Integrators
 
 [Geneva Lecture Notes](https://www.unige.ch/~hairer/poly_geoint/week2.pdf)
+
+
+
+#### Numerical Accuracy
+
+
+
+### Notes
+
+
+Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
+Though, in the infinitessimal limit max_dt -> 0, the two bodies will collide.  Unclear how to make sense of this.
+Scattering is thus a natural phenomenom and is not hard coded.
+
+
+
 
 
 ## Animation
@@ -130,13 +150,13 @@ If one of the limits are zero, then set = 0.1 \* (x_\max-x_\min)
 
 
 
-### Reference Frames
+#### Reference Frames
 
 The Centre of Momentum frame only makes sense for 'Euclidean' momentum conserving Hamiltonians.
 x_com = (\sum_\i m_\i*\x_\i ) / (\sum_\i m_\i).
 Since, the numerator is the sum of Euclidean momenta.
 
-### Error in Hamiltonian
+#### Error in Hamiltonian
 
 The Hamiltonian of this system is a conserved quantity (call energy) - hence expect it to be constant throughout the simulation.
 However, numerical errors means this is (generically) not so.
