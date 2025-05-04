@@ -6,6 +6,17 @@ How to use command line input
 
 
 
+
+## Reading & Exporting the Simulation
+
+**Input**: .json file
+
+**Output**: (optional) .csv of time series of the position of each body (separate file) in a new directory
+
+
+
+
+
 ## JSON File Input
 
 - [ ] give an example
@@ -83,13 +94,6 @@ Samples bodies uniformly randomly.
 
 
 
-## Reading & Exporting the Simulation
-
-**Input**: .json file
-
-**Output**: (optional) .csv of time series of the position of each body (separate file) in a new directory
-
-
 ## Physics / Hamiltonian
 
 The dynamical system is modelled by a set of (differential) equations of motion (EOM).
@@ -160,7 +164,7 @@ Ideally, this should be changed to a sympletic integrator.  I believe scipy does
 
 
 
-### Notes
+#### Notes
 
 Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
 Though, in the infinitessimal limit max_dt -> 0, the two bodies will collide.  Unclear how to make sense of this.
@@ -239,9 +243,10 @@ In principle, the code may be extended to include non-hamiltonian systems.
 - [ ] Implement an alternate dp_dt central potential function - remove the bundle & flatten functions.
 - [ ] Write the code to work with 1-dimensional bodies, and 1 body.
 - [ ] Symplectic Integrator option
+- [ ] Option to directly export the orbit animation to .mp4
 
 
-### Mid priority
+#### Mid priority
 - [ ] Spring law Hamiltonian
 - [ ] Option to control animation speed.
 - [ ] JSON: polar coordinates as a way to construct vectors  (distinguished from Cartessian vectors)
@@ -249,14 +254,14 @@ In principle, the code may be extended to include non-hamiltonian systems.
 - [ ] Test to ensure no two bodies are placed in the same location. Results in infinite force/energy
 
 
-### Low priority
+#### Low priority
 - [ ] polynomial gravity: sum of power-law gravities. Specify powers & coefficients as arrays. eg pows=[1,2], coeffs=[1,2] for V=1/r^1 + 2/r^2
 - [ ] Have colour of `random`-type bodies correspond to the amount of charge & mass.
 - [ ] Uniform gravitational field. eg electrostatics in a uniform down gravitational field
 - [ ] (Hard) Boundaries. eg particles in a box.
 
 
-## (Soft) Collisions
+### (Soft) Collisions
 - [ ] 'Regularise' the dynamics for orbits that closely approach another (massive) body. See `close-encounter.json` file. This is a 2-body problem so orbit should be static ellipse, but it is not.
 
 One idea is to give the bodies a finite size (ie radius), so that they do not come too close to one another.
@@ -264,7 +269,19 @@ However, this will require collisions (between the finite bodies) to be hard cod
 Will have to modify the equations of motion, and or use a custom integrator.
 
 
-## Hard TODOS
+### Speeding up the Simulation
+
+???
+
+
+### Speeding up the Animation
+
+??? 
+
+Plot less frames?
+
+
+### Hard TODOS
 - [ ] Toric (pacman) boundary conditions.  Important: geodesics may be connected by passing through the boundary - so will need to find the radial distance 3 times. Then take the minimum (?)
 - [ ] Regularise head on collisions.  Unclear how to implement numerically without using different equations of motion.  Can this be achieved without compleletely rewriting the code?
 
