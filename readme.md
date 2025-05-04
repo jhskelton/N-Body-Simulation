@@ -18,9 +18,9 @@ Package dependencies
 
 #### Purpose of Simulation
 - Compare the accuracy of different numerical integration schemes
-- Chaotic nature of the 3-body system
+- Chaotic nature of the 3-body problem
 - Visualisation of non-integrable orbits
-- Ray tracing the dynamical system using "ghost" (non-interacting) particles
+- Ray tracing the dynamical system using "ghost" (non-interacting) bodies
 - Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
 
@@ -218,10 +218,19 @@ External Packages:
 
 
 
-#### Numerical Accuracy
+### Numerical Accuracy
 
 - The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. 
 - However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to return to their initial positions). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
+
+The chaotic nature of the $`N`$-body ($`N>2`$) problem manifests by even adjusting the (maximum) integration timestep.
+Improving the time-step accuracy results in wildly different orbits.
+
+
+###### Question:
+
+As the integration time-step goes to zero (ie continuous limit) does the orbit of motion converge to the "true" orbit?
+If the orbits do not converge, then we have an epistemic problem: can we know what the true (continuous) classical orbit is?
 
 
 
