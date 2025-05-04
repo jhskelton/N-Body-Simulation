@@ -102,6 +102,10 @@ $$V = \sum_{i=1}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}$$
 
 Where, $`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r_{ij} = \lVert x_{i}- x_j \rVert`$ is the distance.
 
+- Newtonian gravity: $`g_{ij} = -Gm_im_j`$
+- Electrostatics / Coloumb: $`g_{ij} = k_0 q_iq_j`$
+- Hooke's Law / Spring: $`g_{ij} = \frac{1}{x}k_{ij}`$ (but power law $`r^{-2}`$).
+
 
 ## Simulation
 
@@ -167,7 +171,7 @@ If one of the limits are zero, then set `= 0.1 * (x_max-x_min)`
 #### Reference Frames
 
 The Centre of Momentum frame only makes sense for 'Euclidean' momentum conserving Hamiltonians.
-$`x_{\text{com}} = (\sum_i m_i \x_i ) / (\sum_i m_i)`$.
+$`x_{\text{com}} = (\sum_i m_i x_i ) / (\sum_i m_i)`$.
 Since, the numerator is the sum of Euclidean momenta.
 
 
