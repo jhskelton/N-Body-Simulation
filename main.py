@@ -5,15 +5,16 @@ import time
 
 import src.vector as vector
 import src.arrays as arr
-#import src.simulate.eom as eom
+
 import src.system.system as system
 import src.system.body as body
+import src.system.read_system as read_system
+import src.system.write_system as write_system
 
 from animate.animate_2d import animate_2d_orbits, animate_2d_plots
 from animate.interpolate import interpolate_timestep
 
-import src.read_system as read_system
-import src.write_system as write_system
+
 
 
 
