@@ -95,8 +95,10 @@ These EOM are generated from the Hamiltonian $`H`$ and are Hamilton's equations 
 
 The physics modelled is the Euclidean $`N`$-body central potential system.
 This has Hamiltonian $`H = T+V`$, where $`T = p^2/(2m)`$ is the standard 'Euclidean' kinetic energy and $`V`$ is the central potential.
+
 $$V = \sum_{i}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}$$
-$`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$.
+
+$`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r_{ij} = \lVert x_{i}- x_j \rVert`$
 
 
 ## Simulation
