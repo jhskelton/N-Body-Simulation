@@ -85,6 +85,9 @@ Samples bodies uniformly randomly.
 
 ## Reading & Exporting the Simulation
 
+**Input**: .json file
+
+**Output**: (optional) .csv of time series of the position of each body (separate file) in a new directory
 
 
 ## Physics / Hamiltonian
@@ -115,7 +118,7 @@ The the system may be reduced to two independent 1-body problems, each orbitting
 The four integrals of motion are the Hamiltonian (energy), the angular momenta of the 2-bodies and total linear momentum.
 
 TODO: 
-- check (!) what are the four (or integrals?)
+- check (!) what are the four integrals?
 - can any 2-body central potential system be redueced to two independent central potential systems about the COM.
 
 
@@ -130,18 +133,10 @@ In systems with low eneough energy, this manifests as elliptic orbits (as eviden
 
 The implemented Hamiltonins are `gravity`, `electrostatics`, and `gravity + electrostatics`.
 
-Class Heirarchy in the code:
->- DynamicalSystem
->     - Hamiltonian
->		   - CentralPotential
->			   - Gravity
->			   - ElectroStatics
->			   - GravoElectro
-
-In principle, the code may be extended to include non-hamiltonian systems.
-
 
 The dynamics of the system is simulated by numerically solving the (differential) equations of motion (Hamilton's equations).
+
+
 
 ### Numerical Solvers
 
@@ -160,12 +155,12 @@ Ideally, this should be changed to a sympletic integrator.  I believe scipy does
 
 #### Numerical Accuracy
 
-- The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to close back up). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
+- The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. 
+- However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to close back up). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
 
 
 
 ### Notes
-
 
 Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
 Though, in the infinitessimal limit max_dt -> 0, the two bodies will collide.  Unclear how to make sense of this.
@@ -199,9 +194,39 @@ However, numerical errors means this is (generically) not so.
 
 This plots the difference between the Hamiltonian H0 at t=0, and H(p(t),q(t)).
 
-For systems with static or ghost bodies, energy not be conserved.
+For systems with static or ghost bodies, energy may not be conserved.
 Total momentum is not conserved from scattering interactions - both bodies should recoil, but only one does.
 In this case, this plots how the energy changes from (non-conserving) scattering.
+
+
+
+## Organisation of the Code
+
+
+###### Class Heirarchy of the dynamical systems:
+>- DynamicalSystem
+>     - Hamiltonian
+>		   - CentralPotential
+>			   - Gravity
+>			   - ElectroStatics
+>			   - GravoElectro
+
+In principle, the code may be extended to include non-hamiltonian systems.
+
+
+###### Objects
+> - `DynamicalSystem` - defines the EoM to solve.
+> - `NumericalIntegrator` - defines the numerical scheme used to solve the EoM.
+> - `System` - collection of `Body` objects, and variables used to input into the dynamical system.
+> - `Body` - collection of parameters/constants defining the properties of a body (eg mass, charge)
+> - `Graphics` - collection of parameters describing how to process & plot the data post simulation.
+
+
+###### Misc helper functions
+> - `arrays` - flattening and bundling lists (eg into vectors)
+> - `vector` - computations such as inner-product and norm.  A 'vector' is just a numpy 1d array.
+> - 
+
 
 
 ## TODOS
