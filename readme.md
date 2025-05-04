@@ -131,7 +131,7 @@ The 2-body problem is completely integrable and hence allows for the direct comp
 The the system may be reduced to two independent 1-body problems, each orbitting about the centre of mass (COM) of the system (eg see [notes](https://www.physics.usu.edu/torre/6010_Fall_2016/Lectures/06.pdf)).
 The four integrals of motion are the Hamiltonian (energy), the angular momenta of the 2-bodies and total linear momentum.
 
-TODO: 
+###### TODO:
 - check (!) what are the four integrals?
 - can any 2-body central potential system be redueced to two independent central potential systems about the COM.
 
@@ -159,6 +159,12 @@ The equations are solved using a higher order Runge-kutta integrator.
 Ideally, this should be changed to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
 
 ###### Runge Kutta
+
+Solves the 1st order ODE
+
+$$ \frac{dy}{dt} = f(t,y) $$
+
+See [scipy implementations](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
 
 
 ###### Symplectic Integrators
