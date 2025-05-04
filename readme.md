@@ -16,6 +16,13 @@ Package dependencies
 - `sim_tests/ahhhh-shiny-asteroids.json`
 
 
+#### Purpose of Simulation
+- Compare the accuracy of different numerical integration schemes
+- Chaotic nature of the 3-body system
+- Visualisation of non-integrable orbits
+- Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
+
+
 
 ## Reading & Exporting the Simulation
 
@@ -164,6 +171,7 @@ The dynamics of the system is simulated by numerically solving the (differential
 The equations are solved using a higher order Runge-kutta integrator.  
 Ideally, this should be changed to a sympletic integrator.  I believe scipy does not have one, so many need to use an external package or manually code it.
 
+
 ###### Runge Kutta
 
 Solves the 1st order ODE
@@ -176,6 +184,10 @@ See [scipy implementations](https://docs.scipy.org/doc/scipy/reference/generated
 ###### Symplectic Integrators
 
 [Geneva Lecture Notes](https://www.unige.ch/~hairer/poly_geoint/week2.pdf)
+
+External Packages:
+- [pyHamSys](https://pypi.org/project/pyhamsys/)
+- [REBOUND](https://rebound.readthedocs.io/en/latest/ipython_examples/HighOrderSymplectic/)
 
 
 
@@ -314,3 +326,14 @@ Plot less frames?
 - [ ] Toric (pacman) boundary conditions.  Important: geodesics may be connected by passing through the boundary - so will need to find the radial distance 3 times. Then take the minimum (?)
 - [ ] Regularise head on collisions.  Unclear how to implement numerically without using different equations of motion.  Can this be achieved without compleletely rewriting the code?
 
+
+
+## Related Projects
+- [REBOUND](https://rebound.readthedocs.io/en/latest/)
+- [Physics Simulations](https://www.youtube.com/@physicssimulations7518/videos) (YouTube)
+	- [N-Body Problem Simulation with 5 Free Masses | Gravity | Physics Simulations](https://www.youtube.com/watch?v=Lbkr5C1i4Uo)
+	
+
+## Literature
+
+---
