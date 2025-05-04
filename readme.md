@@ -5,6 +5,12 @@ How to use command line input
 `python3 main.py PATH/SYSTEM.json`
 
 
+Package dependencies
+- `matplotlib`
+- `numpy`
+- `scipy`
+
+
 
 
 ## Reading & Exporting the Simulation
@@ -202,6 +208,12 @@ For systems with static or ghost bodies, energy may not be conserved.
 Total momentum is not conserved from scattering interactions - both bodies should recoil, but only one does.
 In this case, this plots how the energy changes from (non-conserving) scattering.
 
+
+## Automatic Generation of Bodies
+
+### `"type": "random"`
+
+Parameters are uniformly sampled between min & max values.
 
 
 ## Organisation of the Code
