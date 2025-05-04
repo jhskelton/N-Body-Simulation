@@ -93,12 +93,14 @@ The dynamical system is modelled by a set of (differential) equations of motion 
 These EOM are generated from the Hamiltonian $`H`$ and are Hamilton's equations $`\frac{dx}{dt} = \frac{\partial H}{\partial p}`$ and $`\frac{dp}{dt} = -\frac{\partial H}{\partial x}`$.
 
 
+### Central Potential
+
 The physics modelled is the Euclidean $`N`$-body central potential system.
 This has Hamiltonian $`H = T+V`$, where $`T = p^2/(2m)`$ is the standard 'Euclidean' kinetic energy and $`V`$ is the central potential.
 
-$$V = \sum_{i}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}$$
+$$V = \sum_{i=1}^N\sum_{j>i} \frac{g_{ij}}{r_{ij}}$$
 
-$`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r_{ij} = \lVert x_{i}- x_j \rVert`$
+Where, $`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r_{ij} = \lVert x_{i}- x_j \rVert`$ is the distance.
 
 
 ## Simulation
@@ -158,15 +160,16 @@ Implemented using Matploblib.
 
 
 ###### How are the x,y limits chosen?
-If one of the limits are zero, then set = 0.1 \* (x_\max-x_\min)
+If one of the limits are zero, then set `= 0.1 * (x_max-x_min)`
 
 
 
 #### Reference Frames
 
 The Centre of Momentum frame only makes sense for 'Euclidean' momentum conserving Hamiltonians.
-x_com = (\sum_\i m_\i*\x_\i ) / (\sum_\i m_\i).
+$`x_{\text{com}} = (\sum_i m_i \x_i ) / (\sum_i m_i)`$.
 Since, the numerator is the sum of Euclidean momenta.
+
 
 #### Error in Hamiltonian
 
