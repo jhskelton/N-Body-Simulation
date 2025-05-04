@@ -11,6 +11,10 @@ Package dependencies
 - `scipy`
 
 
+#### Interesting systems
+- `sims/system-1.json`
+- `sim_tests/ahhhh-shiny-asteroids.json`
+
 
 
 ## Reading & Exporting the Simulation
@@ -214,6 +218,7 @@ In this case, this plots how the energy changes from (non-conserving) scattering
 ### `"type": "random"`
 
 Parameters are uniformly sampled between min & max values.
+
 
 
 ## Organisation of the Code
