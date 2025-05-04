@@ -273,6 +273,17 @@ Total momentum is not conserved from scattering interactions - both bodies shoul
 In this case, this plots how the energy changes from (non-conserving) scattering.
 
 
+#### Interpolation of coordinates
+
+The output of the numerical solver results in `(y,t)`. Generically, the elements in `t` do not have equal differences (ie $`t_{i+1}-t_{i} \neq t_{j+1}-t_{j}`$, where $`i\neq j`$.
+Hence, in order for the coordinates `y` to advance at constant time increments, `y` must be interpolated.
+The `"dt"` parameter in the `.json` file sets the time increment step.
+This enables the animation to appear more smooth (smaller dt), or sped up (larger dt).
+
+Though, larger `"dt"` causes the animated to appear discontinuous/kinked.
+This apparent in close-encounter orbits. The planet may appear to NOT go around the sun - this is an atefract.
+
+
 ## Automatic Generation of Bodies
 
 ### `"type": "random"`
