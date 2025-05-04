@@ -1,8 +1,8 @@
 import json
-from .system import system, body, rnd_body
-from .simulation.physics import gravity, electrostatics, gravo_electro
-from .simulation import numeric_solver
-from . import graphics
+from . import system, body, rnd_body
+from ..simulation.physics import gravity, electrostatics, gravo_electro
+from ..simulation import numeric_solver
+from .. import graphics
 
 
 bodies_key = 'bodies'
