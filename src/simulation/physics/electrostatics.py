@@ -42,7 +42,7 @@ class ElectroStatics(CentralPotential):
 		r = xM - xn
 		r_norm = vector.norm( r )
 
-		return ( (-k * M * m) / (r_norm**(1+k_e)) ) * r
+		return ( (-k * Q * q) / (r_norm**(1+k_e)) ) * r
 
 
 
@@ -54,14 +54,14 @@ class ElectroStatics(CentralPotential):
 		"""
 		k_e = self.power_law_potential # to change later - ATM powerlaw potential
 
-		M = body_M.mass
-		m = body_n.mass
+		Q = body_M.charge
+		q = body_n.charge
 
 		# calculate displacement vector & norm
 		# |r_ji| = | x_j - x_i |
 		r = xM - xn
 		r_norm = vector.norm( r )
 
-		return ( (k * M * m) / (r_norm**(k_e-1)) )
+		return ( (k * Q * q) / (r_norm**(k_e-1)) )
 
 

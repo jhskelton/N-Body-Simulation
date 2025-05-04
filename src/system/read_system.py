@@ -47,7 +47,7 @@ electrostatics_key = 'electrostatics'
 grav_elec_key = 'gravo-electro'
 
 grav_power_law_key = 'grav power law'
-electro_power_law_key = 'electro power law'
+elec_power_law_key = 'electro power law'
 
 
 ## graphics

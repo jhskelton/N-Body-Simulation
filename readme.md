@@ -16,6 +16,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 #### Interesting systems
 - `sims/system-1.json`
 - `sim_tests/ahhhh-shiny-asteroids.json`
+- `sim_tests/classic4l-atom.json` (long time dynamics is unstable!)
 
 
 #### Purpose of Simulation
@@ -128,7 +129,7 @@ Samples bodies uniformly randomly.
 - `"trail len"`: length of trails behind the moving bodies.  If negative, then has infinite length.
 - `"dt"`: time between frames (using simulation time, not real time). Motion of particles from simulation output (generically) does not have equal spacing in time. This results in unphysical slow-down and speed up if (x,y) is naively plotting.  "dt" is the time spacing used to interpolate the dynamical coordinates, so to make the plotting smooth.
 - `"equal ratio"`: if true, make the coordinate ratio of xs & ys the same
-- `"max radius"`: maximum distance from the (frame) origin to plot. ie if bodies leave the ball with this radius, do not plot them.
+- `"max plot radius"`: maximum distance from the (frame) origin to plot. ie if bodies leave the ball with this radius, do not plot them.
 - `"plot Hamiltonian"`: if true, animate how the Hamiltonian changes over the duration of the simulation.
 
 ##### Numerical Solver
@@ -357,9 +358,8 @@ In principle, the code may be extended to include non-hamiltonian systems.
 - [ ] Write the code to work with 1-dimensional bodies, and 1 body.
 - [ ] Symplectic Integrator option
 - [ ] Option to directly export the orbit animation to .mp4
-- [ ] `Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System.
-[feels as if System and DynamicalSystem should be the same object].
-Simulation should hold the dynamical time evolution of $`(x,p)`$.
+- [ ] `Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System. [feels as if System and DynamicalSystem should be the same object]. Simulation should hold the dynamical time evolution of $`(x,p)`$.
+- [ ] The orbit & Hamiltonian-error animations appear to be out of sync. (delay between close-encounter orbits & spikes in the Hamiltonian-error) Fix it!
 
 
 #### Mid priority
