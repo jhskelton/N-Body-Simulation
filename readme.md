@@ -10,6 +10,8 @@ Package dependencies
 - `numpy`
 - `scipy`
 
+Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
+
 
 #### Interesting systems
 - `sims/system-1.json`
@@ -24,6 +26,12 @@ Package dependencies
 - Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
 
+##### To investigate
+- Stability of orbits
+
+
+
+---
 
 
 ## Reading & Exporting the Simulation
@@ -218,6 +226,12 @@ External Packages:
 
 
 
+### Algorithmic Complexity
+
+Computing $`V_{ij}`$ for $`N`$ bodies scales as $`N(N-1)/2`$.
+
+
+
 ### Numerical Accuracy
 
 - The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. 
@@ -275,13 +289,14 @@ In this case, this plots how the energy changes from (non-conserving) scattering
 
 #### Interpolation of coordinates
 
-The output of the numerical solver results in `(y,t)`. Generically, the elements in `t` do not have equal differences (ie $`t_{i+1}-t_{i} \neq t_{j+1}-t_{j}`$, where $`i\neq j`$.
-Hence, in order for the coordinates `y` to advance at constant time increments, `y` must be interpolated.
-The `"dt"` parameter in the `.json` file sets the time increment step.
+The output of the numerical solver results in `(y,t)`. Generically, the time-step increments (of `t`) are not constant, ie $`t_{i+1}-t_{i} \neq t_{j+1}-t_{j}`$, where $`i\neq j`$.
+Hence, in order for the elements in the coordinate array `y` to advance with constant time increments, `y` must be interpolated.
+The `"dt"` parameter in the `.json` file sets the interpolated time increment step.
 This enables the animation to appear more smooth (smaller dt), or sped up (larger dt).
 
-Though, larger `"dt"` causes the animated to appear discontinuous/kinked.
-This apparent in close-encounter orbits. The planet may appear to NOT go around the sun - this is an atefract.
+Though, larger `"dt"` causes the animation to appear discontinuous/kinked.
+This is apparent in close-encounter orbits. The planet may appear to NOT go around the sun - this is an artefact of interpolation.
+
 
 
 ## Automatic Generation of Bodies
@@ -328,7 +343,6 @@ In principle, the code may be extended to include non-hamiltonian systems.
 ###### Misc helper functions
 > - `arrays` - flattening and bundling lists (eg into vectors)
 > - `vector` - computations such as inner-product and norm.  A 'vector' is just a numpy 1d array.
-> - 
 
 
 

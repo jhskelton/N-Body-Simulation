@@ -1,8 +1,6 @@
-from .central_potential import CentralPotential
+from ..central_potential import CentralPotential
 
-from .. import vector
-from ..arrays import bundle, flatten, flatten_fast
-
+from ... import vector
 
 
 # define a system of 2nd order ODE system.
@@ -11,7 +9,7 @@ from ..arrays import bundle, flatten, flatten_fast
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-G = 1
+k = 1
 
 
 ####  TODO
@@ -21,7 +19,7 @@ Energy must be conserved with each collision - since it is in the Hamiltonian.
 """
 
 
-class Gravity(CentralPotential):
+class ElectroStatics(CentralPotential):
 
 	def __init__(self, system, power_law=2):
 		self.power_law_potential = power_law
@@ -34,17 +32,17 @@ class Gravity(CentralPotential):
 
 		Gravity:  k = 2
 		"""
-		k = self.power_law_potential # to change later - ATM powerlaw potential
+		k_e = self.power_law_potential # to change later - ATM powerlaw potential
 
-		M = body_M.mass
-		m = body_n.mass
+		Q = body_M.charge
+		q = body_n.charge
 
 		# calculate displacement vector & norm
 		# |r_ji| = | x_j - x_i |
 		r = xM - xn
 		r_norm = vector.norm( r )
 
-		return ( (G * M * m) / (r_norm**(1+k)) ) * r
+		return ( (-k * M * m) / (r_norm**(1+k_e)) ) * r
 
 
 
@@ -54,7 +52,7 @@ class Gravity(CentralPotential):
 
 		Gravity:  k = 2
 		"""
-		k = self.power_law_potential # to change later - ATM powerlaw potential
+		k_e = self.power_law_potential # to change later - ATM powerlaw potential
 
 		M = body_M.mass
 		m = body_n.mass
@@ -64,6 +62,6 @@ class Gravity(CentralPotential):
 		r = xM - xn
 		r_norm = vector.norm( r )
 
-		return (-G * M * m) / (r_norm**(k-1))
+		return ( (k * M * m) / (r_norm**(k_e-1)) )
 
 

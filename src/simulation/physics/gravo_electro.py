@@ -1,7 +1,7 @@
-from .central_potential import CentralPotential
+from ..central_potential import CentralPotential
 
-from .. import vector
-from ..arrays import bundle, flatten, flatten_fast
+from ... import vector
+from ...arrays import bundle, flatten, flatten_fast
 
 
 

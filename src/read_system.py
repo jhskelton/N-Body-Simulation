@@ -1,6 +1,7 @@
 import json
-from .system import system, body, rnd_body, gravity, electrostatics, gravo_electro
-from .physics import numeric_solver
+from .system import system, body, rnd_body
+from .simulation.physics import gravity, electrostatics, gravo_electro
+from .simulation import numeric_solver
 from . import graphics
 
 

@@ -1,4 +1,4 @@
-from ..physics.hamiltonian import Hamiltonian
+from ..simulation.hamiltonian import Hamiltonian
 from abc import ABC, abstractmethod
 import numpy as np
 
@@ -187,6 +187,7 @@ class CentralPotential(Hamiltonian):
 				bod_j = self.system.bodies[j]
 				bod_i = self.system.bodies[i]
 
+				# check whether to update dp_dt for the bodies. ie if static or anti-static.
 				update_i = True
 				update_j = True
 
@@ -196,17 +197,10 @@ class CentralPotential(Hamiltonian):
 				update_i = update_i and (not bod_j.anti_static or (bod_i.anti_static and (bod_i.anti_static != bod_j.anti_static) ) )
 				update_j = update_j and (not bod_i.anti_static or (bod_j.anti_static and (bod_i.anti_static != bod_j.anti_static) ) )
 
-				#print(bod_i.name, update_i)
-				#print(bod_j.name, update_j)
-				#input()
-
 				if not update_i and not update_j:
 					pass # add nothing
 				else:
 					x = self.central_force( xs[j], xs[i], bod_j, bod_i )
-
-					# massless bodies have hard-coded unit mass for purpose of calculations!
-					# hence need to manually check
 
 					if update_i:   
 						for k in range(0,d):   out[i*d+k] += x[k]
