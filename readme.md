@@ -20,6 +20,7 @@ Package dependencies
 - Compare the accuracy of different numerical integration schemes
 - Chaotic nature of the 3-body system
 - Visualisation of non-integrable orbits
+- Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
 
 
@@ -248,6 +249,17 @@ Parameters are uniformly sampled between min & max values.
 ## Organisation of the Code
 
 
+###### Sequence
+>- Read input
+>- pre-process
+>- Simulation
+>- post-process
+>- animate
+>- write output
+
+Simulation depends on "physics" (Hamiltonian), "system", and "numerical integrator".
+
+
 ###### Class Heirarchy of the dynamical systems:
 >- `DynamicalSystem`
 >     - `Hamiltonian`
@@ -265,6 +277,12 @@ In principle, the code may be extended to include non-hamiltonian systems.
 > - `System` - collection of `Body` objects, and variables used to input into the dynamical system.
 > - `Body` - collection of parameters/constants defining the properties of a body (eg mass, charge)
 > - `Graphics` - collection of parameters describing how to process & plot the data post simulation.
+
+
+###### TODO:
+`Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System.
+[feels as if System and DynamicalSystem should be the same object].
+Simulation should hold the dynamical time evolution of $`(x,p)`$.
 
 
 ###### Misc helper functions
