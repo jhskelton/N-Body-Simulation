@@ -27,9 +27,9 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - Ray tracing the dynamical system using "ghost" (non-interacting) bodies
 - Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
-- 
 
-##### To investigate
+
+#### To investigate
 - Stability of orbits  (linear stability & non-linear stability)
 
 
@@ -289,7 +289,7 @@ Implemented using Matploblib.
 
 
 ###### How are the x,y limits chosen?
-If one of the limits are zero, then set `= 0.1 * (x_max-x_min)`
+If one of the limits are zero, then set `= 0.1 * (x_max-x_min)` [I've changed this - TODO: need to fix & unit test]
 
 
 
@@ -374,7 +374,6 @@ In principle, the code may be extended to include non-hamiltonian systems.
 ## TODOS
 - [ ] command line input for reading and writing
 - [x] implement the Hamiltonian (energy) function for the (euclidean) central potential. Use to check how well/poorly energy is conserved over the timespan of the simulation.
-- [ ] unit-test electrostatics
 - [ ] Code in more exceptions / error cases.
 - [ ] Speed up / optimise.  Will need to investigate where the bottlenecks are.
 - [ ] Figure out how to speed up the flatten and bundle functions.
@@ -437,11 +436,21 @@ Plot less frames?
 
 ## Related Videos, Essays, and Articles
 
-###### Videos
+### Videos
 
 - [Chaos and Physics Simulations](https://www.youtube.com/watch?v=-nbTrPwQudo)
 - [Chaos and the 3-Body Problem](https://www.youtube.com/watch?v=-nbTrPwQudo)
-- [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc) (Beautiful solutions & orbits)
+- [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc) (beautiful solutions & orbits)
+
+
+
+### Articles
+
+
+##### Relativistic $`N`$-body
+
+- [Post-Minkowskian closed-form Hamiltonian for gravitating N-body systems](https://arxiv.org/abs/1003.0561) (N-body Hamiltonian of relativistic particles, post-Minkowsian limit of General Relativity)
+- [Post-Minkowskian approximation](https://arxiv.org/pdf/0807.0214) (2008: Ledvinka, Schaefer, Bicak)
 
 
 ## Literature
