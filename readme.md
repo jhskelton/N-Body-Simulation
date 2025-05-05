@@ -27,6 +27,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - Ray tracing the dynamical system using "ghost" (non-interacting) bodies
 - Scattering from close encounter orbits
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
+- 
 
 ##### To investigate
 - Stability of orbits  (linear stability & non-linear stability)
@@ -236,12 +237,27 @@ Computing $`V_{ij}`$ for $`N`$ bodies scales as $`N(N-1)/2`$.
 
 ### Numerical Accuracy
 
+
+##### Conserved Quantities
+
 - The Hamiltonian should be conserved throughout the simulation, but it is (generically) not. In the 2-body problem (most) orbits do indeed form ellipses, and this naively suggests the simulation may be accurate. 
 - However, during the simulation the Hamiltonian varies at an O(1)-O(100) order. In fact, the Hamiltonian is periodic (hence enabling the orbits to return to their initial positions). It is unclear why the variance is so large and why numerical errors cancel out and cause the Hamiltonian to be periodic.
+
+
+##### Chaos
 
 The chaotic nature of the $`N`$-body ($`N>2`$) problem manifests by even adjusting the (maximum) integration timestep.
 Improving the time-step accuracy results in wildly different orbits.
 Different time-steps results in different increments of positions, which will exponentially diverge.
+
+
+##### Bounded Orbits
+
+There exist configurations (initial velocities are zero) for which the orbits should be bounded for all time. This is imposed by conservation of the Hamiltonian (energy).
+[which configurations are these?]
+However, generically, the long time behaviour is that the bodies will 'shoot' off to infinity.  This occurs due to an accumulation of numerical errors, and that the Hamiltonian not being conserved.
+
+
 
 
 ###### Question:
@@ -416,6 +432,7 @@ Plot less frames?
 - [Physics Simulations](https://www.youtube.com/@physicssimulations7518/videos) (YouTube)
 	- [N-Body Problem Simulation with 5 Free Masses | Gravity | Physics Simulations](https://www.youtube.com/watch?v=Lbkr5C1i4Uo)
 - [Three-Body Problem Simulation](https://www.youtube.com/watch?v=cev3g826iIQ)
+- [3 Body Problem - Periodic Solutions](https://github.com/mws262/MAE5730_examples/tree/master/3BodySolutions) (surprisingly very simple code)
 	
 
 ## Related Videos, Essays, and Articles
@@ -424,7 +441,7 @@ Plot less frames?
 
 - [Chaos and Physics Simulations](https://www.youtube.com/watch?v=-nbTrPwQudo)
 - [Chaos and the 3-Body Problem](https://www.youtube.com/watch?v=-nbTrPwQudo)
-- [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc)
+- [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc) (Beautiful solutions & orbits)
 
 
 ## Literature
