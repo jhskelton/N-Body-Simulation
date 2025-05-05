@@ -16,7 +16,8 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 #### Interesting systems
 - `sims/system-1.json`
 - `sim_tests/ahhhh-shiny-asteroids.json`
-- `sim_tests/classic4l-atom.json` (long time dynamics is unstable!)
+- `sim_tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
+- `sim_tests/pythagoras.json`
 
 
 #### Purpose of Simulation
@@ -28,7 +29,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - Statistical/out-of-equilibirum behaviour of large $`N`$-body systems (ie structure formation)
 
 ##### To investigate
-- Stability of orbits
+- Stability of orbits  (linear stability & non-linear stability)
 
 
 
@@ -240,6 +241,7 @@ Computing $`V_{ij}`$ for $`N`$ bodies scales as $`N(N-1)/2`$.
 
 The chaotic nature of the $`N`$-body ($`N>2`$) problem manifests by even adjusting the (maximum) integration timestep.
 Improving the time-step accuracy results in wildly different orbits.
+Different time-steps results in different increments of positions, which will exponentially diverge.
 
 
 ###### Question:
@@ -256,6 +258,12 @@ Though, in the infinitessimal limit `max_dt` $`\to 0`$, the two bodies will coll
 Scattering is thus a natural phenomenom and is not hard coded.
 
 
+
+
+
+## Analysis
+
+> Post simulation analysis.
 
 
 
@@ -407,7 +415,17 @@ Plot less frames?
 - [REBOUND](https://rebound.readthedocs.io/en/latest/)
 - [Physics Simulations](https://www.youtube.com/@physicssimulations7518/videos) (YouTube)
 	- [N-Body Problem Simulation with 5 Free Masses | Gravity | Physics Simulations](https://www.youtube.com/watch?v=Lbkr5C1i4Uo)
+- [Three-Body Problem Simulation](https://www.youtube.com/watch?v=cev3g826iIQ)
 	
+
+## Related Videos, Essays, and Articles
+
+###### Videos
+
+- [Chaos and Physics Simulations](https://www.youtube.com/watch?v=-nbTrPwQudo)
+- [Chaos and the 3-Body Problem](https://www.youtube.com/watch?v=-nbTrPwQudo)
+- [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc)
+
 
 ## Literature
 

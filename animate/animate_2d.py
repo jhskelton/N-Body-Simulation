@@ -350,3 +350,19 @@ def animate_2d_plots(xs, ys,
 	return anim
 
 
+
+
+
+
+
+def get_plt_lim(x_min, x_max, R ):
+
+	x_cntr = 0
+
+	x_upper = x_cntr + min(R, x_max)
+	x_lower = x_cntr + max(-R, x_min)  # this does not work if not centred at zero
+
+	#xlim = [ min(x_lower, (x_min-x_max)*0.1), max(x_upper, (x_max-x_min)*0.1) ]
+	xlim = [ x_lower, x_upper ]
+
+	return xlim

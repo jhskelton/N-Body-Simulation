@@ -11,7 +11,7 @@ import src.system.body as body
 import src.system.read_system as read_system
 import src.system.write_system as write_system
 
-from animate.animate_2d import animate_2d_orbits, animate_2d_plots
+from animate.animate_2d import animate_2d_orbits, animate_2d_plots, get_plt_lim
 from animate.interpolate import interpolate_timestep
 
 
@@ -48,7 +48,9 @@ frame = COM, zero, or the name of a body [ie frame of reference]
 powerlaw = force goes as 1/r^k
 """
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 input_file = "system-1.json"
 output_dir = "test/"
@@ -211,8 +213,8 @@ if show_animation:
 
 	R = visual_data.max_plt_radius
 
-	xlim = [ min(max(-R, x_min), (x_min-x_max)*0.1), max(min(R, x_max), (x_max-x_min)*0.1) ]
-	ylim = [ min(max(-R, y_min), (y_min-y_max)*0.1), max(min(R, y_max), (y_max-y_min)*0.1) ]
+	xlim = get_plt_lim(x_min,x_max, R)
+	ylim = get_plt_lim(y_min,y_max, R)
 
 	#####
 
