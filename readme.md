@@ -19,7 +19,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - `sims/tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
 - `sims/tests/pythagoras.json`
 - `sims/3-body/triangle-2-3-crazy.json`
-- `sims/3-body/figure-8.json` [Montgomery](#$`N`$-Body-Exact-Solutions)
+- `sims/3-body/figure-8.json` [Montgomery](#N-Body-Exact-Solutions)
 
 
 #### Purpose of Simulation
@@ -465,7 +465,7 @@ Plot less frames?
 
 ### Articles
 
-##### $`N`$-Body Exact Solutions
+##### N-Body Exact Solutions
 - [Figure Eight Obrit](https://webhomes.maths.ed.ac.uk/~ateckent/vacation_reports/Report_Faustino.pdf)
 - [Braids in Classical Dynamics](https://sites.santafe.edu/~moore/braids-prl.pdf) (1993: Moore)
 - [N-Body Choreography](https://en.wikipedia.org/wiki/N-body_choreography)
