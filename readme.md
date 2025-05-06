@@ -469,7 +469,7 @@ Plot less frames?
 - [Figure Eight Obrit](https://webhomes.maths.ed.ac.uk/~ateckent/vacation_reports/Report_Faustino.pdf)
 - [Braids in Classical Dynamics](https://sites.santafe.edu/~moore/braids-prl.pdf) (1993: Moore)
 - [N-Body Choreography](https://en.wikipedia.org/wiki/N-body_choreography)
-- [A remarkable periodic solution of the three-body problem in the case of equal masses](2000: Chenciner, & Montgomery)
+- [A remarkable periodic solution of the three-body problem in the case of equal masses](https://arxiv.org/abs/math/0011268) (2000: Chenciner, & Montgomery)
 
 
 ##### Relativistic $`N`$-body
