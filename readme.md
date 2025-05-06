@@ -19,7 +19,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - `sims/tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
 - `sims/tests/pythagoras.json`
 - `sims/3-body/triangle-2-3-crazy.json`
-- `sims/3-body/figure-8.json` [Montgomery](#N-Body-Exact-Solutions)
+- `sims/3-body/figure-8.json` ([R Montgomery](#N-Body-Exact-Solutions))
 
 
 #### Purpose of Simulation
@@ -447,19 +447,32 @@ Plot less frames?
 
 ## Related Projects
 - [REBOUND](https://rebound.readthedocs.io/en/latest/)
-- [Physics Simulations](https://www.youtube.com/@physicssimulations7518/videos) (YouTube)
-	- [N-Body Problem Simulation with 5 Free Masses | Gravity | Physics Simulations](https://www.youtube.com/watch?v=Lbkr5C1i4Uo)
 - [Three-Body Problem Simulation](https://www.youtube.com/watch?v=cev3g826iIQ)
 - [3 Body Problem - Periodic Solutions](https://github.com/mws262/MAE5730_examples/tree/master/3BodySolutions) (surprisingly very simple code)
 	
 
-## Related Videos, Essays, and Articles
+
+## Further References: Related Videos, Essays, and Articles
+
+
+### Webpages
+
+- [Bob Jenkins](https://burtleburtle.net/bob/index.html)
+	- [Toruses and Dyson Swarms](https://burtleburtle.net/bob/scifi/dyson.html)
+	- [Multistep Methods for the N-Body Problem](https://burtleburtle.net/bob/math/multistep.html) (numerical methods for solving the ODE)
+	- [Figure Eight Orbits](https://burtleburtle.net/bob/physics/eight.html)
+	- [JavaScript Source Code](https://burtleburtle.net/bob/js/orbit.js)
+	- [Klemperer Rosettes](https://burtleburtle.net/bob/physics/kempler.html)
+	- [Orbits](https://burtleburtle.net/bob/physics/index.html)
+
 
 ### Videos
 
 - [Chaos and Physics Simulations](https://www.youtube.com/watch?v=-nbTrPwQudo)
 - [Chaos and the 3-Body Problem](https://www.youtube.com/watch?v=-nbTrPwQudo)
 - [3 Body Problem - Periodic Solutions](https://www.youtube.com/watch?v=8_RRZcqBEAc) (beautiful solutions & orbits)
+- [Physics Simulations](https://www.youtube.com/@physicssimulations7518/videos) (YouTube)
+	- [N-Body Problem Simulation with 5 Free Masses | Gravity | Physics Simulations](https://www.youtube.com/watch?v=Lbkr5C1i4Uo)
 
 
 
@@ -472,10 +485,18 @@ Plot less frames?
 - [A remarkable periodic solution of the three-body problem in the case of equal masses](https://arxiv.org/abs/math/0011268) (2000: Chenciner, & Montgomery)
 
 
-##### Relativistic $`N`$-body
+
+##### Relativistic N-body
 
 - [Post-Minkowskian closed-form Hamiltonian for gravitating N-body systems](https://arxiv.org/abs/1003.0561) (N-body Hamiltonian of relativistic particles, post-Minkowsian limit of General Relativity)
 - [Post-Minkowskian approximation](https://arxiv.org/pdf/0807.0214) (2008: Ledvinka, Schaefer, & Bicak)
+
+
+
+### Lecture Notes
+
+##### Numerical Integrators
+- [Ernst Hairer's Numerical Integration book](https://www.unige.ch/~hairer/polycop.html)
 
 
 ## Literature
