@@ -72,7 +72,7 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 	"physics": "gravity",
 	"tfin": 1000,
 	"max dt": 0.1,
-	"dt": 0.5,
+	"plot dt": 0.5,
 }
 ```
 
@@ -129,7 +129,7 @@ Samples bodies uniformly randomly.
 - `"frame"`: how to centre the plotting. Options: COM, zero, name of a body
 	- `"COM"`: centre of mass frame
 - `"trail len"`: length of trails behind the moving bodies.  If negative, then has infinite length.
-- `"dt"`: time between frames (using simulation time, not real time). Motion of particles from simulation output (generically) does not have equal spacing in time. This results in unphysical slow-down and speed up if (x,y) is naively plotting.  "dt" is the time spacing used to interpolate the dynamical coordinates, so to make the plotting smooth.
+- `"plot dt"`: time between frames (using simulation time, not real time). Motion of particles from simulation output (generically) does not have equal spacing in time. This results in unphysical slow-down and speed up if (x,y) is naively plotting.  "plot dt" is the time spacing used to interpolate the dynamical coordinates, so to make the plotting smooth.
 - `"equal ratio"`: if true, make the coordinate ratio of xs & ys the same
 - `"max plot radius"`: maximum distance from the (frame) origin to plot. ie if bodies leave the ball with this radius, do not plot them.
 - `"plot Hamiltonian"`: if true, animate how the Hamiltonian changes over the duration of the simulation.
@@ -278,7 +278,7 @@ If the orbits do not converge, then we have an epistemic problem: can we know wh
 #### Notes
 
 Some trajectories look like bounces/collisions when two bodies come close together.  However, if one zooms in, they in fact do not touch but have orbits that pass through one another in a parabolic like shape.
-Though, in the infinitessimal limit `max_dt` $`\to 0`$, the two bodies will collide.  Unclear how to make sense of this.
+Though, in the infinitessimal limit `max dt` $`\to 0`$, the two bodies will collide.  Unclear how to make sense of this.
 Scattering is thus a natural phenomenom and is not hard coded.
 
 
@@ -324,10 +324,10 @@ In this case, this plots how the energy changes from (non-conserving) scattering
 
 The output of the numerical solver results in `(y,t)`. Generically, the time-step increments (of `t`) are not constant, ie $`t_{i+1}-t_{i} \neq t_{j+1}-t_{j}`$, where $`i\neq j`$.
 Hence, in order for the elements in the coordinate array `y` to advance with constant time increments, `y` must be interpolated.
-The `"dt"` parameter in the `.json` file sets the interpolated time increment step.
+The `"plot dt"` parameter in the `.json` file sets the interpolated time increment step.
 This enables the animation to appear more smooth (smaller dt), or sped up (larger dt).
 
-Though, larger `"dt"` causes the animation to appear discontinuous/kinked.
+Though, larger `"plot dt"` causes the animation to appear discontinuous/kinked.
 This is apparent in close-encounter orbits. The planet may appear to NOT go around the sun - this is an artefact of interpolation.
 
 
@@ -408,8 +408,8 @@ In principle, the code may be extended to include non-hamiltonian systems.
 
 
 ### Animations
-- [ ] Allow `"dt"` to be large, but have smooth orbit curves. ie if `y = [0,1,2,3,4,5,6]` and `t = [0,0.5,1,1.5,2,2.5,3]` and `dt=1`, then plot `y0=[0]`, `y1=[0,1,2]`, `y2=[0,1,2,3,4]` etc as the discrete time steps.
-- Currently: have that if `dt=1`, then plot `y0=[0]`, `y1=[0,2]`, `y2=[0,2,4]`, which clearly introduces 'sharp' discontinuous artefacts.
+- [ ] Allow `"plot dt"` to be large, but have smooth orbit curves. ie if `y = [0,1,2,3,4,5,6]` and `t = [0,0.5,1,1.5,2,2.5,3]` and `"plot dt"`=1, then plot `y0=[0]`, `y1=[0,1,2]`, `y2=[0,1,2,3,4]` etc as the discrete time steps.
+- Currently: have that if `plot dt`=1, then plot `y0=[0]`, `y1=[0,2]`, `y2=[0,2,4]`, which clearly introduces 'sharp' discontinuous artefacts.
 - [ ] Plot the lines as slightly more opaque than the circle markers
 - [ ] Option to directly export the orbit animation to .mp4
 - [ ] Thinner lines for faster velocities (?)

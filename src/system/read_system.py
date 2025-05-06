@@ -51,7 +51,7 @@ elec_power_law_key = 'electro power law'
 
 
 ## graphics
-dt_key = 'dt'
+plt_dt_key = 'plot dt'
 trail_len_key = 'trail length'
 max_plot_radius_key = 'max plot radius'
 equal_aspect_ratio_key = 'equal ratio'
@@ -128,7 +128,7 @@ def read_json(f_name:str):
 
 	#~~~~~~~~~~~~~~~~~~
 	# non-essential data
-	try:				syst_vis.dt = system_data[ dt_key ]
+	try:				syst_vis.dt = system_data[ plt_dt_key ]
 	except KeyError:	pass
 	
 	try:				syst_vis.origin = system_data[ origin_key ]

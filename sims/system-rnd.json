@@ -11,7 +11,7 @@
 	],
 	"dim": 2,
 	"tfin": 1000,
-	"dt": 0.5,
+	"plot dt": 0.5,
 	"frame": "COM",
 	"trail length": 100,
 	"max dt": 0.1,

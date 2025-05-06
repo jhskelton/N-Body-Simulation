@@ -27,7 +27,7 @@
 	"dim": 2,
 	"tfin": 830,
 	"plot dt": 0.4,
-	"frame": "COM",
+	"frame": "earth1",
 
 	"max dt": 0.05,
 	"power law": 2,
@@ -37,5 +37,5 @@
 
 	"equal ratio": true,
 
-	"max plot radius": 6.3
+	"max plot radius": 9
 }
