@@ -1,0 +1,41 @@
+{
+	"bodies": [
+		{
+			"name": "earth1",
+			"x0": [0,0],
+			"v0": [0,0],
+			"mass": 0.1,
+			"colour": "limegreen"
+		},
+
+		{
+			"name": "earth2",
+			"x0": [0,2],
+			"v0": [0,0],
+			"mass": 0.1,
+			"colour": "dodgerblue"
+		},
+
+		{
+			"name": "earth3",
+			"x0": [3,0],
+			"v0": [0,0],
+			"mass": 0.1,
+			"colour": "red"
+		}
+	],
+	"dim": 2,
+	"tfin": 1200,
+	"dt": 0.4,
+	"frame": "COM",
+
+	"max dt": 0.005,
+	"power law": 2,
+
+	"physics": "gravity",
+	"trail length": 60,
+
+	"equal ratio": true,
+
+	"max plot radius": 6
+}

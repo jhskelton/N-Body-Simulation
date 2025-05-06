@@ -178,21 +178,29 @@ Where, $`g_{ij}`$ is the coupling strength between bodies $`i`$ & $`j`$, and $`r
 - Hooke's Law / Spring: $`g_{ij} = \frac{1}{2}k_{ij}`$ (but power law $`r^{-2}`$).
 
 
-##### 2-Body Dyanmics
+#### 2-Body Dyanmics
 
 The 2-body problem is completely integrable and hence allows for the direct comparison between the analytical solutions and numerical solutions.
 The the system may be reduced to two independent 1-body problems, each orbitting about the centre of mass (COM) of the system (eg see [notes](https://www.physics.usu.edu/torre/6010_Fall_2016/Lectures/06.pdf)).
 The four integrals of motion are the Hamiltonian (energy), the angular momenta of the 2-bodies and total linear momentum.
 
-###### TODO:
+##### TODO:
 - check (!) what are the four integrals?
 - can any 2-body central potential system be redueced to two independent central potential systems about the COM.
 
 
-###### Gravity
+##### Gravity
 For gravity the 1-body problem (Kepler problem), the orbits form conic sections.
 In systems with low eneough energy, this manifests as elliptic orbits (as evident in the solar system).
 
+
+#### 3-Body Dyanmics
+
+##### Planar initial Conditions
+
+If the initial velocities/momenta are all zero, then the problem may be reduced to two dimensions - ie the motion all occurs on a plane.
+
+[makes the problem more integrable?]
 
 
 ## Simulation
@@ -380,7 +388,6 @@ In principle, the code may be extended to include non-hamiltonian systems.
 - [ ] Implement an alternate dp_dt central potential function - remove the bundle & flatten functions.
 - [ ] Write the code to work with 1-dimensional bodies, and 1 body.
 - [ ] Symplectic Integrator option
-- [ ] Option to directly export the orbit animation to .mp4
 - [ ] `Simulation` object, which holds the DynamicalSystem, NumericalIntegrator, and System. [feels as if System and DynamicalSystem should be the same object]. Simulation should hold the dynamical time evolution of $`(x,p)`$.
 - [ ] The orbit & Hamiltonian-error animations appear to be out of sync. (delay between close-encounter orbits & spikes in the Hamiltonian-error) Fix it!
 
@@ -398,6 +405,15 @@ In principle, the code may be extended to include non-hamiltonian systems.
 - [ ] Have colour of `random`-type bodies correspond to the amount of charge & mass.
 - [ ] Uniform gravitational field. eg electrostatics in a uniform down gravitational field
 - [ ] (Hard) Boundaries. eg particles in a box.
+
+
+### Animations
+- [ ] Allow `"dt"` to be large, but have smooth orbit curves. ie if `y = [0,1,2,3,4,5,6]` and `t = [0,0.5,1,1.5,2,2.5,3]` and `dt=1`, then plot `y0=[0]`, `y1=[0,1,2]`, `y2=[0,1,2,3,4]` etc as the discrete time steps.
+- Currently: have that if `dt=1`, then plot `y0=[0]`, `y1=[0,2]`, `y2=[0,2,4]`, which clearly introduces 'sharp' discontinuous artefacts.
+- [ ] Plot the lines as slightly more opaque than the circle markers
+- [ ] Option to directly export the orbit animation to .mp4
+- [ ] Thinner lines for faster velocities (?)
+
 
 
 ### (Soft) Collisions

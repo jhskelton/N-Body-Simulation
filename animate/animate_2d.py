@@ -181,7 +181,6 @@ def animate_2d_orbits(xs,ys,
 			# add plots to the frame container
 
 			lw = 2
-			mksize = 10
 			colour = None
 
 			if type(colours) != type(None):
@@ -189,11 +188,31 @@ def animate_2d_orbits(xs,ys,
 
 			if type(linewidths) != type(None):
 				lw = linewidths[i]
+
+			container.append( ax.plot(x, y, color=colour, linewidth=lw)[0] )
+
+
+		#### plot marker to show current position
+		for i in range(0,N):
+			# iterate over every particle
+
+			x = xs[i][t]
+			y = ys[i][t]
+
+			# transform the coordinates
+			x,y,_ = coord_transform(x,y,t)
+
+			# add plots to the frame container
+			lw = 2
+			mksize = 10
+			colour = None
+
+			if type(colours) != type(None):
+				colour = colours[i]
 			if type(markersizes) != type(None):
 				mksize = markersizes[i]
 
-			container.append( ax.plot(x, y, color=colour, linewidth=lw)[0] )
-			container.append( ax.plot(x[-1],y[-1], 'o', color=colour, markersize=mksize)[0] )
+			container.append( ax.plot(x,y, 'o', color=colour, markersize=mksize)[0] )
 
 		
 		artists.append(container)
