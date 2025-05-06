@@ -1,0 +1,43 @@
+{
+	"bodies": [
+		{
+			"name": "earth1",
+			"x0": [0.97000436, -0.24308753],
+			"v0": [0.466203685, 0.43236573],
+			"mass": 1,
+			"colour": "limegreen"
+		},
+
+		{
+			"name": "earth2",
+			"x0": [-0.97000436, 0.24308753],
+			"v0": [0.466203685, 0.43236573],
+			"mass": 1,
+			"colour": "red"
+		},
+
+		{
+			"name": "earth3",
+			"x0": [0,0],
+			"v0": [-0.93240737, -0.86473146],
+			"mass": 1,
+			"colour": "dodgerblue"
+		}
+	],
+	"dim": 2,
+	"tfin": 30,
+	"plot dt": 0.05,
+	"frame": "COM",
+
+	"max dt": 0.01,
+	"power law": 2,
+
+	"physics": "gravity",
+	"trail length": 40,
+
+	"equal ratio": true,
+
+	"max plot radius": 9,
+
+	"citation": "https://arxiv.org/pdf/math/0011268"
+}

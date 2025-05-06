@@ -18,6 +18,8 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 - `sims/tests/ahhhh-shiny-asteroids.json`
 - `sims/tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
 - `sims/tests/pythagoras.json`
+- `sims/3-body/triangle-2-3-crazy.json`
+- `sims/3-body/figure-8.json` [Montgomery](#$`N`$-Body-Exact-Solutions)
 
 
 #### Purpose of Simulation
@@ -122,6 +124,7 @@ Samples bodies uniformly randomly.
 
 - `"dim"`: number of dimensions of position/velocity/momentum vectors.
 - `"tfin"`: Simulation time duration. ie the ending time of the simulation
+- `"citation"`: unused key-word.  Record of sources
 
 
 ##### Visuals
@@ -462,11 +465,17 @@ Plot less frames?
 
 ### Articles
 
+##### $`N`$-Body Exact Solutions
+- [Figure Eight Obrit](https://webhomes.maths.ed.ac.uk/~ateckent/vacation_reports/Report_Faustino.pdf)
+- [Braids in Classical Dynamics](https://sites.santafe.edu/~moore/braids-prl.pdf) (1993: Moore)
+- [N-Body Choreography](https://en.wikipedia.org/wiki/N-body_choreography)
+- [A remarkable periodic solution of the three-body problem in the case of equal masses](2000: Chenciner, & Montgomery)
+
 
 ##### Relativistic $`N`$-body
 
 - [Post-Minkowskian closed-form Hamiltonian for gravitating N-body systems](https://arxiv.org/abs/1003.0561) (N-body Hamiltonian of relativistic particles, post-Minkowsian limit of General Relativity)
-- [Post-Minkowskian approximation](https://arxiv.org/pdf/0807.0214) (2008: Ledvinka, Schaefer, Bicak)
+- [Post-Minkowskian approximation](https://arxiv.org/pdf/0807.0214) (2008: Ledvinka, Schaefer, & Bicak)
 
 
 ## Literature

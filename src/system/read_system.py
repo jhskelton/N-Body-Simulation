@@ -32,6 +32,8 @@ dimension_key = 'dim'
 
 t_fin_key = 'tfin'
 
+cite_key = 'citation'
+
 
 ## simulation
 max_dt_key = 'max dt'
