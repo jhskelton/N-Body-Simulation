@@ -15,9 +15,9 @@ Note: closing the 'Error in Hamiltonian' window, speeds up the animation.
 
 #### Interesting systems
 - `sims/system-1.json`
-- `sim_tests/ahhhh-shiny-asteroids.json`
-- `sim_tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
-- `sim_tests/pythagoras.json`
+- `sims/tests/ahhhh-shiny-asteroids.json`
+- `sims/tests/classic4l-atom.json` (long time dynamics is unstable! [accumulation of numerical errors] )
+- `sims/tests/pythagoras.json`
 
 
 #### Purpose of Simulation
